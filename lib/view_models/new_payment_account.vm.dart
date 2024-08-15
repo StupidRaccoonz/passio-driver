@@ -15,9 +15,25 @@ class NewPaymentAccountViewModel extends MyBaseViewModel {
   //
   PaymentAccountRequest paymentAccountRequest = PaymentAccountRequest();
   TextEditingController nameTEC = TextEditingController();
-  TextEditingController numberTEC = TextEditingController();
+  TextEditingController bankAccountNumberTEC = TextEditingController();
+  TextEditingController nameOfTheBeneficiaryTEC = TextEditingController();
+  TextEditingController ifscCodeTEC = TextEditingController();
+  TextEditingController mtnMobileNumberTEC = TextEditingController();
+  TextEditingController mtnNameMobileMoneyTEC = TextEditingController();
+  TextEditingController orangeMobileNumberTEC = TextEditingController();
+  TextEditingController nameOrangeNameTEC = TextEditingController();
   TextEditingController instructionsTEC = TextEditingController();
   bool isActive = true;
+
+  int selectedAccountTypeIndex = 0;
+
+  void changeAccountTypeTab(index) {
+    if (selectedAccountTypeIndex == index) {
+      return;
+    }
+    selectedAccountTypeIndex = index;
+    notifyListeners();
+  }
 
   //
   processSave() async {
@@ -28,13 +44,18 @@ class NewPaymentAccountViewModel extends MyBaseViewModel {
       final apiResponse = await paymentAccountRequest.newPaymentAccount(
         {
           "name": nameTEC.text,
-          "number": numberTEC.text,
+          "number": bankAccountNumberTEC.text,
+          "beneficiary_name": nameOfTheBeneficiaryTEC.text,
+          "IFSC_code_or_bank_code": ifscCodeTEC.text,
+          "mtn_money_number": mtnMobileNumberTEC.text,
+          "mtn_name": mtnNameMobileMoneyTEC.text,
+          "orange_money_number": orangeMobileNumberTEC.text,
+          "oragne_name": nameOrangeNameTEC.text,
           "instructions": instructionsTEC.text,
           "is_active": isActive ? "1" : "0",
         },
       );
 
-      //
       CoolAlert.show(
         context: viewContext,
         type: apiResponse.allGood ? CoolAlertType.success : CoolAlertType.error,

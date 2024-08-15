@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:fuodz/constants/app_strings.dart';
 import 'package:fuodz/models/user.dart';
@@ -125,9 +126,10 @@ class AuthServices {
   ///
   ///
   static Future<Vehicle> saveVehicle(dynamic jsonObject) async {
-    final driverVehicle = Vehicle.fromJson(jsonObject);
+    final driverVehicle = Vehicle.fromJson(jsonObject as Map<String, dynamic>);
     try {
       //
+
       await LocalStorageService.prefs!.setString(
         AppStrings.driverVehicleKey,
         json.encode(

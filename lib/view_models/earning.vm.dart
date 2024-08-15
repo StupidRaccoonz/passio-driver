@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
 import 'package:fuodz/models/currency.dart';
@@ -31,6 +33,7 @@ class EarningViewModel extends MyBaseViewModel {
 
   fetchEarning() async {
     setBusy(true);
+
     try {
       final results = await earningRequest.getEarning();
       currency = results[0];

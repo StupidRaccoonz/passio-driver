@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:fuodz/constants/api.dart';
 import 'package:fuodz/models/api_response.dart';
 import 'package:fuodz/models/currency.dart';
@@ -8,9 +10,10 @@ class EarningRequest extends HttpService {
   //
   Future<List<dynamic>> getEarning() async {
     final apiResult = await get(Api.earning);
-
+    log('Hello world');
     //
     final apiResponse = ApiResponse.fromResponse(apiResult);
+
     if (apiResponse.allGood) {
       return [
         Currency.fromJSON(apiResponse.body["currency"]),

@@ -16,6 +16,16 @@ class PaymentAccountListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final label1 = paymentAccount.number != ''
+        ? paymentAccount.name
+        : paymentAccount.mtnName != ''
+            ? paymentAccount.mtnName
+            : paymentAccount.orangeMoneyName;
+    final label2 = paymentAccount.name != ''
+        ? paymentAccount.name
+        : paymentAccount.mtnName != ''
+            ? paymentAccount.mtnName
+            : paymentAccount.orangeMoneyName;
     return VStack(
       [
         Row(
@@ -23,16 +33,16 @@ class PaymentAccountListItem extends StatelessWidget {
             //name
             VStack(
               [
-                "Account Name".tr().text.sm.make(),
-                "${paymentAccount.name}".text.xl.medium.make(),
+                // "Account Name".tr().text.sm.make(),
+                "${label1}".text.xl.medium.make(),
               ],
             ).expand(),
             UiSpacer.hSpace(),
             //
             VStack(
               [
-                "Account Number".tr().text.sm.make(),
-                "${paymentAccount.number}".text.xl.medium.make(),
+                // "Account Number".tr().text.sm.make(),
+                "${label2}".text.xl.medium.make(),
               ],
               crossAlignment: CrossAxisAlignment.end,
             ),

@@ -9,6 +9,7 @@ import 'package:fuodz/requests/auth.request.dart';
 import 'package:fuodz/requests/general.request.dart';
 import 'package:fuodz/services/alert.service.dart';
 import 'package:fuodz/traits/qrcode_scanner.trait.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 import 'base.view_model.dart';
 
@@ -24,6 +25,7 @@ class RegisterViewModel extends MyBaseViewModel with QrcodeScannerTrait {
   CarMake? selectedCarMake;
   CarModel? selectedCarModel;
   List<File> selectedDocuments = [];
+  XFile? driverSelfie;
   bool hidePassword = true;
   late Country selectedCountry;
 
@@ -67,6 +69,11 @@ class RegisterViewModel extends MyBaseViewModel with QrcodeScannerTrait {
 
   void onDocumentsSelected(List<File> documents) {
     selectedDocuments = documents;
+    notifyListeners();
+  }
+
+  void onSelfieCaptured(XFile selfie) {
+    driverSelfie = selfie;
     notifyListeners();
   }
 
@@ -140,10 +147,8 @@ class RegisterViewModel extends MyBaseViewModel with QrcodeScannerTrait {
         params["phone"] = "+${selectedCountry.phoneCode}${phone}";
 
         final apiResponse = await _authRequest.registerRequest(
-          vals: params,
-          docs: selectedDocuments,
-        );
-
+            vals: params, docs: selectedDocuments, selfie: driverSelfie!);
+        print(apiResponse.body);
         if (apiResponse.allGood) {
           await AlertService.success(
             title: "Become a partner".tr(),

@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:dio_http_cache_lts/dio_http_cache_lts.dart';
+import 'package:flutter/material.dart';
 import 'package:fuodz/constants/api.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 
@@ -18,9 +19,10 @@ class HttpService {
 
   Future<Map<String, String>> getHeaders() async {
     final userToken = await AuthServices.getAuthBearerToken();
+
     return {
       HttpHeaders.acceptHeader: "application/json",
-      HttpHeaders.authorizationHeader: "Bearer $userToken",
+      'x-authorization': "Bearer $userToken",
       "lang": translator.activeLocale.languageCode,
     };
   }
@@ -63,7 +65,8 @@ class HttpService {
         : Options(
             headers: await getHeaders(),
           );
-
+    // print(await getHeaders());
+    // print(uri);
     return dio.get(
       uri,
       options: mOptions,

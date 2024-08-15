@@ -28,6 +28,14 @@ class OrderRequest extends HttpService {
 
     //
     final apiResponse = ApiResponse.fromResponse(apiResult);
+    print({
+      {
+        "driver_id": (await AuthServices.getCurrentUser()).id,
+        "page": page,
+        "status": status,
+        "type": type,
+      },
+    });
     if (apiResponse.allGood) {
       return apiResponse.data.map((jsonObject) {
         return Order.fromJson(jsonObject);

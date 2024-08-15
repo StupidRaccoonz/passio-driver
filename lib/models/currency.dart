@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 class Currency {
   int id;
   String code = "USD";
@@ -11,7 +13,7 @@ class Currency {
 
   factory Currency.fromJSON(dynamic json) {
     final currency = Currency(
-      id: json["id"],
+      id: int.parse(json["id"].toString()),
       code: json["code"],
       symbol: json["symbol"],
     );

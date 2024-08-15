@@ -15,17 +15,47 @@ class EditPaymentAccountViewModel extends MyBaseViewModel {
   //
   PaymentAccountRequest paymentAccountRequest = PaymentAccountRequest();
   TextEditingController nameTEC = TextEditingController();
-  TextEditingController numberTEC = TextEditingController();
+  TextEditingController bankAccountNumberTEC = TextEditingController();
+  TextEditingController nameOfTheBeneficiaryTEC = TextEditingController();
+  TextEditingController ifscCodeTEC = TextEditingController();
+  TextEditingController mtnMobileNumberTEC = TextEditingController();
+  TextEditingController mtnNameMobileMoneyTEC = TextEditingController();
+  TextEditingController orangeMobileNumberTEC = TextEditingController();
+  TextEditingController nameOrangeNameTEC = TextEditingController();
   TextEditingController instructionsTEC = TextEditingController();
   bool isActive = true;
   PaymentAccount paymentAccount;
 
+  int selectedAccountTypeIndex = 0;
+
+  void changeAccountTypeTab(index) {
+    if (selectedAccountTypeIndex == index) {
+      return;
+    }
+    selectedAccountTypeIndex = index;
+    notifyListeners();
+  }
+
   //
   void initialise() {
     nameTEC.text = paymentAccount.name;
-    numberTEC.text = paymentAccount.number;
+    bankAccountNumberTEC.text = paymentAccount.number;
+    nameOfTheBeneficiaryTEC.text = paymentAccount.nameOfBeneficiary;
+    ifscCodeTEC.text = paymentAccount.ifscCode;
+    mtnMobileNumberTEC.text = paymentAccount.mtnMobileNumber;
+    mtnNameMobileMoneyTEC.text = paymentAccount.mtnName;
+    orangeMobileNumberTEC.text = paymentAccount.orangeMoneyNumber;
+    nameOrangeNameTEC.text = paymentAccount.orangeMoneyName;
     instructionsTEC.text = paymentAccount.instructions;
     isActive = paymentAccount.isActive;
+
+    if (paymentAccount.name != '') {
+      changeAccountTypeTab(0);
+    } else if (paymentAccount.mtnName != '') {
+      changeAccountTypeTab(1);
+    } else {
+      changeAccountTypeTab(2);
+    }
     notifyListeners();
   }
 
@@ -39,7 +69,13 @@ class EditPaymentAccountViewModel extends MyBaseViewModel {
         paymentAccount.id,
         {
           "name": nameTEC.text,
-          "number": numberTEC.text,
+          "number": bankAccountNumberTEC.text,
+          "beneficiary_name": nameOfTheBeneficiaryTEC.text,
+          "IFSC_code_or_bank_code": ifscCodeTEC.text,
+          "mtn _money_number": mtnMobileNumberTEC.text,
+          "mtn_name": mtnNameMobileMoneyTEC.text,
+          "orange_money_number": orangeMobileNumberTEC.text,
+          "oragne_name": nameOrangeNameTEC.text,
           "instructions": instructionsTEC.text,
           "is_active": isActive ? "1" : "0",
         },

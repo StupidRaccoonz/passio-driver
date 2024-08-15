@@ -23,6 +23,7 @@ class EarningBottomSheet extends StatelessWidget {
       viewModelBuilder: () => EarningViewModel(context),
       onViewModelReady: (vm) => vm.initialise(),
       builder: (context, vm, child) {
+        print('Amount is: ${vm.earning?.amount}');
         return VStack(
           [
             "Earning".tr().text.medium.xl2.makeCentered(),

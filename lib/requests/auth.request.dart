@@ -4,6 +4,7 @@ import 'package:fuodz/constants/api.dart';
 import 'package:fuodz/models/api_response.dart';
 import 'package:fuodz/models/user.dart';
 import 'package:fuodz/services/http.service.dart';
+import 'package:image_picker/image_picker.dart';
 
 class AuthRequest extends HttpService {
   //
@@ -26,12 +27,15 @@ class AuthRequest extends HttpService {
   Future<ApiResponse> registerRequest({
     required Map<String, dynamic> vals,
     List<File>? docs,
+    required XFile selfie,
   }) async {
     final postBody = {
       ...vals,
     };
 
     FormData formData = FormData.fromMap(postBody);
+    formData.files
+        .add(MapEntry('live_photo', await MultipartFile.fromFile(selfie.path)));
     if ((docs ?? []).isNotEmpty) {
       for (File file in docs!) {
         formData.files.addAll([
@@ -230,13 +234,18 @@ class AuthRequest extends HttpService {
     return ApiResponse.fromResponse(apiResult);
   }
 
-  Future<ApiResponse> submitDocumentsRequest({required List<File> docs}) async {
+  Future<ApiResponse> submitDocumentsRequest(
+      {required List<File> docs, required XFile driverImage}) async {
     FormData formData = FormData.fromMap({});
     for (File file in docs) {
       formData.files.addAll([
         MapEntry("documents[]", await MultipartFile.fromFile(file.path)),
       ]);
     }
+
+    formData.files.add(
+      MapEntry("driver_image", await MultipartFile.fromFile(driverImage.path)),
+    );
 
     final apiResult = await postCustomFiles(
       Api.documentSubmission,

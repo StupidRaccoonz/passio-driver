@@ -8,42 +8,6 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:269117602435:android:3ef3508a053a5067ae79b6",
-        "android_client_info": {
-          "package_name": "com.paqssioapstore.com"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "269117602435-bgjc9a9n4hm5ltvmdpajb6div1nbrsi4.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCLR011zF03HRubIsjiIMIuzJPMSyedJbg"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "269117602435-bgjc9a9n4hm5ltvmdpajb6div1nbrsi4.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "269117602435-njvkptjr5k8qmvl30i91dljlfn6fd795.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.zennittech.passio"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
         "mobilesdk_app_id": "1:269117602435:android:0de0b7b68ee4403fae79b6",
         "android_client_info": {
           "package_name": "com.passio.customer"
@@ -51,11 +15,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "269117602435-dknjrl8dnjgekv56k8hjje4280b8o920.apps.googleusercontent.com",
+          "client_id": "269117602435-5itmbh2847hnk69iv4vlohiesc158r85.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.passio.customer",
-            "certificate_hash": "1cf0d6c0d5e1296a21d4ef41d58f54e21ed41aa1"
+            "certificate_hash": "83fa08234f279430a5556b9fe8dfae25e01b4d42"
           }
         },
         {
@@ -132,43 +96,7 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:269117602435:android:5fd605a72e99c76aae79b6",
-        "android_client_info": {
-          "package_name": "com.passio.drivers"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "269117602435-bgjc9a9n4hm5ltvmdpajb6div1nbrsi4.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCLR011zF03HRubIsjiIMIuzJPMSyedJbg"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "269117602435-bgjc9a9n4hm5ltvmdpajb6div1nbrsi4.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "269117602435-njvkptjr5k8qmvl30i91dljlfn6fd795.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.zennittech.passio"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:269117602435:android:2c9a316bb7ed7c0aae79b6",
+        "mobilesdk_app_id": "1:269117602435:android:671109593f357731ae79b6",
         "android_client_info": {
           "package_name": "com.passio.store"
         }
@@ -204,95 +132,7 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:269117602435:android:b3690f81f3bff727ae79b6",
-        "android_client_info": {
-          "package_name": "com.passio.users"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "269117602435-2scodhtn3j6pqtirrkvon4vuipk2kgch.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.passio.users",
-            "certificate_hash": "cae81b14572cab712fff339497c94b4bacaf22d7"
-          }
-        },
-        {
-          "client_id": "269117602435-kgkc08vksd7gdk6rjq72p25fnecc0u0t.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.passio.users",
-            "certificate_hash": "59f4c44344e36ffc86fbf0ea649879cbc1b936eb"
-          }
-        },
-        {
-          "client_id": "269117602435-bgjc9a9n4hm5ltvmdpajb6div1nbrsi4.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCLR011zF03HRubIsjiIMIuzJPMSyedJbg"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "269117602435-bgjc9a9n4hm5ltvmdpajb6div1nbrsi4.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "269117602435-njvkptjr5k8qmvl30i91dljlfn6fd795.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.zennittech.passio"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:269117602435:android:3871950f06ff0a76ae79b6",
-        "android_client_info": {
-          "package_name": "com.passio.vendors"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "269117602435-bgjc9a9n4hm5ltvmdpajb6div1nbrsi4.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCLR011zF03HRubIsjiIMIuzJPMSyedJbg"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "269117602435-bgjc9a9n4hm5ltvmdpajb6div1nbrsi4.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "269117602435-njvkptjr5k8qmvl30i91dljlfn6fd795.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.zennittech.passio"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:269117602435:android:d8e5aa14438c563fae79b6",
+        "mobilesdk_app_id": "1:269117602435:android:9fd25478956a3074ae79b6",
         "android_client_info": {
           "package_name": "com.passioap.com"
         }
@@ -328,117 +168,9 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:269117602435:android:35eab201068ce3ccae79b6",
+        "mobilesdk_app_id": "1:269117602435:android:c7864d92dc54e8c7ae79b6",
         "android_client_info": {
           "package_name": "com.passioapdriver.com"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "269117602435-bgjc9a9n4hm5ltvmdpajb6div1nbrsi4.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCLR011zF03HRubIsjiIMIuzJPMSyedJbg"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "269117602435-bgjc9a9n4hm5ltvmdpajb6div1nbrsi4.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "269117602435-njvkptjr5k8qmvl30i91dljlfn6fd795.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.zennittech.passio"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:269117602435:android:9191f8388c206e94ae79b6",
-        "android_client_info": {
-          "package_name": "com.passioapp.drivers"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "269117602435-bgjc9a9n4hm5ltvmdpajb6div1nbrsi4.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCLR011zF03HRubIsjiIMIuzJPMSyedJbg"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "269117602435-bgjc9a9n4hm5ltvmdpajb6div1nbrsi4.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "269117602435-njvkptjr5k8qmvl30i91dljlfn6fd795.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.zennittech.passio"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:269117602435:android:2e41a7332c728e49ae79b6",
-        "android_client_info": {
-          "package_name": "com.passioapp.store"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "269117602435-bgjc9a9n4hm5ltvmdpajb6div1nbrsi4.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCLR011zF03HRubIsjiIMIuzJPMSyedJbg"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "269117602435-bgjc9a9n4hm5ltvmdpajb6div1nbrsi4.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "269117602435-njvkptjr5k8qmvl30i91dljlfn6fd795.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.zennittech.passio"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:269117602435:android:a44e6429a423d2feae79b6",
-        "android_client_info": {
-          "package_name": "com.passioapp.users"
         }
       },
       "oauth_client": [

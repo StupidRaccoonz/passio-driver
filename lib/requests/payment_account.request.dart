@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:fuodz/constants/api.dart';
 import 'package:fuodz/models/api_response.dart';
 import 'package:fuodz/models/payment_account.dart';
@@ -7,6 +8,7 @@ class PaymentAccountRequest extends HttpService {
   //
   Future<ApiResponse> newPaymentAccount(Map<String, dynamic> payload) async {
     final apiResult = await post(Api.paymentAccount, payload);
+
     return ApiResponse.fromResponse(apiResult);
   }
 
