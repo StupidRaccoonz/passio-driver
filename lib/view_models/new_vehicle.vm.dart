@@ -5,6 +5,7 @@ import 'package:fuodz/models/vehicle.dart';
 import 'package:fuodz/requests/general.request.dart';
 import 'package:fuodz/requests/vehicle.request.dart';
 import 'package:fuodz/services/alert.service.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 import 'base.view_model.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -21,6 +22,7 @@ class NewVehicleViewModel extends MyBaseViewModel {
   CarMake? selectedCarMake;
   CarModel? selectedCarModel;
   List<File> selectedDocuments = [];
+  XFile? driverSelfie;
 
   GeneralRequest _generalRequest = GeneralRequest();
   VehicleRequest vehicleRequest = VehicleRequest();
@@ -68,6 +70,11 @@ class NewVehicleViewModel extends MyBaseViewModel {
 
   void onDocumentsSelected(List<File> documents) {
     selectedDocuments = documents;
+    notifyListeners();
+  }
+
+  void onSelfieCaptured(XFile selfie) {
+    driverSelfie = selfie;
     notifyListeners();
   }
 

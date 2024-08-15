@@ -37,6 +37,7 @@ class OrderDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //
+
     return Scaffold(
       body: ViewModelBuilder<OrderDetailsViewModel>.reactive(
         viewModelBuilder: () => OrderDetailsViewModel(context, order),
@@ -79,7 +80,7 @@ class OrderDetailsPage extends StatelessWidget {
                       ).pOnly(bottom: Vx.dp20),
 
                       //order delivery/pickup location
-                      OrderAddressView(vm),
+                      // OrderAddressView(vm),
 
                       //status
                       "Status".tr().text.gray500.medium.sm.make(),
@@ -101,9 +102,9 @@ class OrderDetailsPage extends StatelessWidget {
                           VStack(
                             [
                               "Vendor".tr().text.gray500.medium.sm.make(),
-                              vm.order.vendor!.name.text.medium.xl
-                                  .make()
-                                  .pOnly(bottom: Vx.dp20),
+                              // vm.order.vendor!.name.text.medium.xl
+                              //     .make()
+                              //     .pOnly(bottom: Vx.dp20),
                             ],
                           ).expand(),
                           //call
@@ -242,7 +243,9 @@ class OrderDetailsPage extends StatelessWidget {
                               [
                                 AmountTile(
                                   "Package Type".tr(),
-                                  vm.order.packageType!.name,
+                                  vm.order.packageType != null
+                                      ? vm.order.packageType!.name
+                                      : '',
                                 ),
                                 AmountTile(
                                   "Width".tr(),

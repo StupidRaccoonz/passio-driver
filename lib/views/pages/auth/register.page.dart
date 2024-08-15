@@ -291,6 +291,7 @@ class RegisterPage extends StatelessWidget {
                               AppPageSettings.driverDocumentInstructions,
                           max: AppPageSettings.maxDriverDocumentCount,
                           onSelected: vm.onDocumentsSelected,
+                          onSelfieSelected: vm.onSelfieCaptured,
                         ).py(12),
 
                         UiSpacer.divider(),

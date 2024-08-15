@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:fuodz/constants/api.dart';
 import 'package:fuodz/models/api_response.dart';
 import 'package:fuodz/models/wallet.dart';
@@ -8,6 +10,7 @@ class WalletRequest extends HttpService {
   //
   Future<Wallet> walletBalance() async {
     final apiResult = await get(Api.walletBalance);
+
     final apiResponse = ApiResponse.fromResponse(apiResult);
     if (apiResponse.allGood) {
       return Wallet.fromJson(apiResponse.body);

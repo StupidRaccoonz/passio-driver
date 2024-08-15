@@ -3,6 +3,7 @@
 //     final earning = earningFromJson(jsonString);
 
 import 'dart:convert';
+import 'dart:developer';
 
 Earning earningFromJson(String str) => Earning.fromJson(json.decode(str));
 
@@ -29,25 +30,28 @@ class Earning {
   String formattedDate;
   String formattedUpdatedDate;
 
-  factory Earning.fromJson(Map<String, dynamic> json) => Earning(
-        id: json["id"] == null ? null : json["id"],
-        amount: json["amount"] == null
-            ? 0
-            : double.parse(json["amount"].toString()),
-        userId: json["user_id"] == null ? null : json["user_id"],
-        vendorId: json["vendor_id"],
-        createdAt: json["created_at"] == null
-            ? DateTime.now()
-            : DateTime.parse(json["created_at"]),
-        updatedAt: json["updated_at"] == null
-            ? DateTime.now()
-            : DateTime.parse(json["updated_at"]),
-        formattedDate:
-            json["formatted_date"] == null ? null : json["formatted_date"],
-        formattedUpdatedDate: json["formatted_updated_date"] == null
-            ? null
-            : json["formatted_updated_date"],
-      );
+  factory Earning.fromJson(Map<String, dynamic> json) {
+    return Earning(
+      id: json["id"] == null ? null : json['id'].toInt(),
+      amount:
+          json["amount"] == null ? 0 : double.parse(json["amount"].toString()),
+      userId: json["user_id"] == null
+          ? null
+          : int.parse(json["user_id"].toString()),
+      vendorId: json["vendor_id"],
+      createdAt: json["created_at"] == null
+          ? DateTime.now()
+          : DateTime.parse(json["created_at"]),
+      updatedAt: json["updated_at"] == null
+          ? DateTime.now()
+          : DateTime.parse(json["updated_at"]),
+      formattedDate:
+          json["formatted_date"] == null ? null : json["formatted_date"],
+      formattedUpdatedDate: json["formatted_updated_date"] == null
+          ? null
+          : json["formatted_updated_date"],
+    );
+  }
 
   Map<String, dynamic> toJson() => {
         "id": id,

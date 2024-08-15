@@ -14,6 +14,12 @@ class PaymentAccount {
   PaymentAccount({
     required this.name,
     required this.number,
+    required this.nameOfBeneficiary,
+    required this.ifscCode,
+    required this.mtnMobileNumber,
+    required this.mtnName,
+    required this.orangeMoneyName,
+    required this.orangeMoneyNumber,
     required this.instructions,
     required this.isActive,
     required this.updatedAt,
@@ -25,6 +31,12 @@ class PaymentAccount {
 
   String name;
   String number;
+  String nameOfBeneficiary;
+  String ifscCode;
+  String mtnMobileNumber;
+  String mtnName;
+  String orangeMoneyNumber;
+  String orangeMoneyName;
   String instructions;
   bool isActive;
   DateTime updatedAt;
@@ -34,8 +46,14 @@ class PaymentAccount {
   String formattedUpdatedDate;
 
   factory PaymentAccount.fromJson(Map<String, dynamic> json) => PaymentAccount(
-        name: json["name"],
-        number: json["number"],
+        name: json["name"] ?? '',
+        number: json["number"] ?? '',
+        nameOfBeneficiary: json['beneficiary_name'] ?? '',
+        ifscCode: json['IFSC_code_or_bank_code'] ?? '',
+        mtnMobileNumber: json['mtn_money_number'] ?? '',
+        mtnName: json['mtn_name'] ?? '',
+        orangeMoneyName: json['oragne_name'] ?? '',
+        orangeMoneyNumber: json['orange_money_number'] ?? '',
         instructions: json["instructions"] == null ? '' : json["instructions"],
         isActive: json["is_active"].toString().toInt() == 1,
         updatedAt: DateTime.parse(json["updated_at"]),
@@ -48,6 +66,12 @@ class PaymentAccount {
   Map<String, dynamic> toJson() => {
         "name": name,
         "number": number,
+        "beneficiary_name": nameOfBeneficiary,
+        "IFSC_code_or_bank_code": ifscCode,
+        "mtn_money_number": mtnMobileNumber,
+        "mtn_name": mtnName,
+        "orange_money_number": orangeMoneyNumber,
+        "oragne_name": orangeMoneyName,
         "is_active": isActive ? "1" : "0",
         "instructions": instructions,
         "updated_at": updatedAt.toIso8601String(),

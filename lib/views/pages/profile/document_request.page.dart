@@ -34,66 +34,69 @@ class _DocumentRequestPageState extends State<DocumentRequestPage> {
           isLoading: model.isBusy,
           body: model.isBusy
               ? BusyIndicator().centered().p(20)
-              : VStack(
-                  [
-                    //if the document is pending verification
-                    Visibility(
-                      visible: model.currentUser!.pendingDocumentApproval,
-                      child: VStack(
-                        [
-                          Image.asset(
-                            AppImages.pendingDocument,
-                            //width 20% of screen
-                            width: context.screenWidth * 0.2,
-                            height: context.screenWidth * 0.2,
-                          ),
-                          20.heightBox,
-                          "Pending Verification".tr().text.xl2.bold.make(),
-                          6.heightBox,
-                          "Your document is pending verification, once verified you will receive an email from us. Thank you"
-                              .tr()
-                              .text
-                              .center
-                              .make(),
-                        ],
-                        crossAlignment: CrossAxisAlignment.center,
-                      ).p(20).py(32),
-                    ),
+              : SingleChildScrollView(
+                  child: VStack(
+                    [
+                      //if the document is pending verification
+                      Visibility(
+                        visible: model.currentUser!.pendingDocumentApproval,
+                        child: VStack(
+                          [
+                            Image.asset(
+                              AppImages.pendingDocument,
+                              //width 20% of screen
+                              width: context.screenWidth * 0.2,
+                              height: context.screenWidth * 0.2,
+                            ),
+                            20.heightBox,
+                            "Pending Verification".tr().text.xl2.bold.make(),
+                            6.heightBox,
+                            "Your document is pending verification, once verified you will receive an email from us. Thank you"
+                                .tr()
+                                .text
+                                .center
+                                .make(),
+                          ],
+                          crossAlignment: CrossAxisAlignment.center,
+                        ).p(20).py(32),
+                      ),
 
-                    //if the document is requested
-                    Visibility(
-                      visible: model.currentUser!.documentRequested,
-                      child: VStack(
-                        [
-                          Image.asset(
-                            AppImages.pendingDocument,
-                            //width 20% of screen
-                            width: context.screenWidth * 0.2,
-                            height: context.screenWidth * 0.2,
-                          ),
-                          20.heightBox,
-                          "Document Requested".tr().text.xl2.bold.make(),
-                          6.heightBox,
-                          //doucment selection
-                          DocumentSelectionView(
-                            title: "Documents".tr(),
-                            instruction:
-                                AppPageSettings.driverDocumentInstructions,
-                            max: AppPageSettings.maxDriverDocumentCount,
-                            onSelected: model.onDocumentsSelected,
-                          ).py(12),
-                          10.heightBox,
-                          //submit button
-                          CustomButton(
-                            title: "Submit".tr(),
-                            loading: model.busy(model.selectedDocuments),
-                            onPressed: () => model.submitDocuments(),
-                          )
-                        ],
-                        crossAlignment: CrossAxisAlignment.center,
-                      ).p(20).wFull(context),
-                    ),
-                  ],
+                      //if the document is requested
+                      Visibility(
+                        visible: model.currentUser!.documentRequested,
+                        child: VStack(
+                          [
+                            Image.asset(
+                              AppImages.pendingDocument,
+                              //width 20% of screen
+                              width: context.screenWidth * 0.2,
+                              height: context.screenWidth * 0.2,
+                            ),
+                            20.heightBox,
+                            "Document Requested".tr().text.xl2.bold.make(),
+                            6.heightBox,
+                            //doucment selection
+                            DocumentSelectionView(
+                              title: "Documents".tr(),
+                              instruction:
+                                  AppPageSettings.driverDocumentInstructions,
+                              max: AppPageSettings.maxDriverDocumentCount,
+                              onSelected: model.onDocumentsSelected,
+                              onSelfieSelected: model.onSelfieCaptured,
+                            ).py(12),
+                            10.heightBox,
+                            //submit button
+                            CustomButton(
+                              title: "Submit".tr(),
+                              loading: model.busy(model.selectedDocuments),
+                              onPressed: () => model.submitDocuments(),
+                            )
+                          ],
+                          crossAlignment: CrossAxisAlignment.center,
+                        ).p(20).wFull(context),
+                      ),
+                    ],
+                  ),
                 ),
         );
       },

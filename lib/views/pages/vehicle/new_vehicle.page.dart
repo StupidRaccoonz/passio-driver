@@ -137,6 +137,7 @@ class _NewVehiclePageState extends State<NewVehiclePage> {
                   instruction: AppPageSettings.driverDocumentInstructions,
                   max: AppPageSettings.maxDriverDocumentCount,
                   onSelected: vm.onDocumentsSelected,
+                  onSelfieSelected: vm.onSelfieCaptured,
                 ).py20(),
 
                 UiSpacer.divider().py12(),

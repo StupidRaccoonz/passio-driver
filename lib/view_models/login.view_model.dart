@@ -62,6 +62,7 @@ class LoginViewModel extends MyBaseViewModel with QrcodeScannerTrait {
         email: emailTEC.text,
         password: passwordTEC.text,
       );
+      print(apiResponse.body);
       await handleDeviceLogin(apiResponse);
       //
       setBusy(false);
@@ -305,6 +306,7 @@ class LoginViewModel extends MyBaseViewModel with QrcodeScannerTrait {
       } else {
         //check it the user is a driver
         final user = User.fromJson(apiResponse.body["user"]);
+
         if (user.role != "driver") {
           CoolAlert.show(
             context: viewContext,
@@ -314,15 +316,18 @@ class LoginViewModel extends MyBaseViewModel with QrcodeScannerTrait {
           );
           return;
         }
+
         //everything works well
         //firebase auth
         final fbToken = apiResponse.body["fb_token"];
         await FirebaseAuth.instance.signInWithCustomToken(fbToken);
         final driver = await AuthServices.saveUser(apiResponse.body["user"]);
+
         if (driver.isTaxiDriver && apiResponse.body["vehicle"] != null) {
           await AuthServices.saveVehicle(apiResponse.body["vehicle"]);
           await AuthServices.syncDriverData(apiResponse.body);
         }
+
         await AuthServices.setAuthBearerToken(apiResponse.body["token"]);
         await AuthServices.isAuthenticated();
 
