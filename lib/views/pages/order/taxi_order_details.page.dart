@@ -31,6 +31,7 @@ class _TaxiOrderDetailPageState extends State<TaxiOrderDetailPage> {
   @override
   Widget build(BuildContext context) {
     //
+
     return Scaffold(
       body: ViewModelBuilder<OrderDetailsViewModel>.reactive(
         viewModelBuilder: () => OrderDetailsViewModel(context, widget.order),

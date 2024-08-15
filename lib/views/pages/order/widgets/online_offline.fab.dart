@@ -67,24 +67,24 @@ class OnlineOfflineFab extends StatelessWidget {
                     .onInkTap(homeVm.toggleOnlineStatus),
           ],
         ).py(0);
-        // FloatingActionButton.extended(
-        //     icon: Icon(
-        //       !AppService().driverIsOnline
-        //           ? FlutterIcons.location_off_mdi
-        //           : FlutterIcons.location_on_mdi,
-        //       color: Colors.white,
-        //     ),
-        //     label: (AppService().driverIsOnline
-        //             ? "You are Online"
-        //             : "You are Offline")
-        //         .tr()
-        //         .text
-        //         .white
-        //         .make(),
-        //     backgroundColor:
-        //         (AppService().driverIsOnline ? Colors.green : Colors.red),
-        //     onPressed: homeVm.toggleOnlineStatus,
-        //   );
+        FloatingActionButton.extended(
+          icon: Icon(
+            !AppService().driverIsOnline
+                ? FlutterIcons.location_off_mdi
+                : FlutterIcons.location_on_mdi,
+            color: Colors.white,
+          ),
+          label: (AppService().driverIsOnline
+                  ? "You are Online"
+                  : "You are Offline")
+              .tr()
+              .text
+              .white
+              .make(),
+          backgroundColor:
+              (AppService().driverIsOnline ? Colors.green : Colors.red),
+          onPressed: homeVm.toggleOnlineStatus,
+        );
       },
     );
   }

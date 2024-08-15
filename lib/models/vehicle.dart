@@ -39,11 +39,11 @@ class Vehicle {
 
   factory Vehicle.fromJson(Map<String, dynamic> json) {
     return Vehicle(
-      id: json["id"],
-      carModelId: json["car_model_id"],
-      driverId: json["driver_id"],
-      vehicleTypeId: json["vehicle_type_id"],
-      regNo: json["reg_no"],
+      id: int.parse(json["id"].toString()),
+      carModelId: int.parse(json["car_model_id"].toString()),
+      driverId: int.parse(json["driver_id"].toString()),
+      vehicleTypeId: int.parse(json["vehicle_type_id"].toString()),
+      regNo: json["reg_no"].toString(),
       color: json["color"],
       isActive: json["is_active"] == null
           ? 0
@@ -51,7 +51,7 @@ class Vehicle {
               ? json["is_active"]
                   ? 1
                   : 0
-              : json["is_active"] ?? 0,
+              : int.parse(json["is_active"].toString()),
       photo: json["photo"],
       carModel: CarModel.fromJson(json["car_model"]),
       vehicleType: VehicleType.fromJson(json["vehicle_type"]),
@@ -88,9 +88,9 @@ class CarModel {
   CarMake? carMake;
 
   factory CarModel.fromJson(Map<String, dynamic> json) => CarModel(
-        id: json["id"],
+        id: int.parse(json["id"].toString()),
         name: json["name"],
-        carMakeId: json["car_make_id"],
+        carMakeId: int.parse(json["car_make_id"].toString()),
         carMake: json["car_make"] != null
             ? CarMake.fromJson(json["car_make"])
             : null,
@@ -114,7 +114,7 @@ class CarMake {
   String name;
 
   factory CarMake.fromJson(Map<String, dynamic> json) => CarMake(
-        id: json["id"],
+        id: int.parse(json["id"].toString()),
         name: json["name"],
       );
 
@@ -150,14 +150,14 @@ class VehicleType {
   String photo;
 
   factory VehicleType.fromJson(Map<String, dynamic> json) => VehicleType(
-        id: json["id"],
+        id: int.parse(json["id"].toString()),
         name: json["name"],
         slug: json["slug"],
         baseFare: json["base_fare"].toString().toDouble()!,
         distanceFare: json["distance_fare"].toString().toDouble()!,
         timeFare: json["time_fare"].toString().toDouble()!,
         minFare: json["min_fare"].toString().toDouble()!,
-        isActive: json["is_active"],
+        isActive: int.parse(json["is_active"].toString()),
         formattedDate: json["formatted_date"],
         photo: json["photo"],
       );

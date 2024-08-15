@@ -45,16 +45,16 @@ class WalletTransaction {
 
   factory WalletTransaction.fromJson(Map<String, dynamic> json) =>
       WalletTransaction(
-        id: json["id"] == null ? null : json["id"],
+        id: json["id"] == null ? null : json["id"].toInt(),
         amount: json["amount"].toString().toDouble(),
         reason: json["reason"] == null ? "" : json["reason"],
         ref: json["ref"] == null ? null : json["ref"],
-        walletId: json["wallet_id"] == null ? null : json["wallet_id"],
+        walletId: int.parse(json["wallet_id"].toString()),
         paymentMethodId: json["payment_method_id"] == null
             ? null
             : json["payment_method_id"],
         status: json["status"] == null ? null : json["status"],
-        isCredit: json["is_credit"] == null ? null : json["is_credit"],
+        isCredit: int.parse(json['is_credit'].toString()),
         createdAt: json["created_at"] == null
             ? DateTime.now()
             : DateTime.parse(json["created_at"]),
